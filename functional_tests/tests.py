@@ -61,7 +61,6 @@ class NewVisitorTest(LiveServerTestCase):
         )
 
         # Now a new user, Francis, comes along to the site
-        # TODO: Add unique URLs for each list
         # TODO: Add URLs for adding a new item to an existing list via POST
 
         ## We use a new browser session to make sure that no information of
