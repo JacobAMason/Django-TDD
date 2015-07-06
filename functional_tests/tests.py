@@ -1,17 +1,21 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 __author__ = 'JacobAMason'
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
+        # https://code.djangoproject.com/ticket/21227
+        # This is supposed to be some hacky workaround for the 10054 error.
+        # It works maybe 50% of the time.
+        self.browser.refresh()
         self.browser.quit()
 
     def check_for_row_in_list_table(self, row_text):
