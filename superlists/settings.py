@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w*23nstp#(p$&3*3**amvxj&7*1a13f_65*gwq893a#(@ae1n-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = DEBUG
+
+# Needed when DEBUG=False
+ALLOWED_HOSTS = ['superlists-staging.jacobmason.net']
 
 
 # Application definition
